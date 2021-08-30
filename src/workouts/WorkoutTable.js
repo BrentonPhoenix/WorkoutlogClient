@@ -3,14 +3,14 @@ import { Table,Button } from 'reactstrap'
 
 const WorkoutTable = (props) => {
     const deleteWork = (workout) => {
-        fetch(`http://localhost:4000/log/${workout.id}`, {
+        fetch(`http://localhost:4000/log/delete/${workout.id}`, {
             method: 'DELETE',
             headers: new Headers({
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${props.token}`
             })
         })
-        .then(()=> props.fetchWorkout())
+        .then(()=>{ props.fetchWorkouts(); console.log(workout)})
     }
 
     const workoutMapper = () => {
