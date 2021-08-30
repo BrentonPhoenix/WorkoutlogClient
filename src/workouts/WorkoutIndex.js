@@ -19,13 +19,14 @@ const WorkoutIndex = (props) => {
         }).then((res) => res.json())
         .then((logData) => {
             setWorkouts(logData)
-            return})
+         fetchWorkouts()})
         .catch(err => console.log(err))
     }
 
     useEffect((e)=>{
         fetchWorkouts()
     }, [])
+
     const editUpdateWorkout = (workout) =>{
         setWorkoutToUpdate(workout)
         console.log(workout)
